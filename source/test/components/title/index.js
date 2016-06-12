@@ -9,7 +9,7 @@ const Title = createTitle(React);
 const render = reactDom.renderToStaticMarkup;
 
 test('Title', assert => {
-  const titleText = 'Hello!';
+  const titleText = 'Mathbirthday';
   const props = {
     title: titleText,
     titleClass: 'title'

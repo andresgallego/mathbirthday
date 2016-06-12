@@ -1,4 +1,4 @@
 import './components/title';
-import './components/hello';
+import './store/reducers/date';
+import './functions';
 import './App.js';
-import './store/reducers/hello';

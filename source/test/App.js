@@ -4,36 +4,20 @@ import test from 'tape';
 import dom from 'cheerio';
 
 import createApp from 'App.js';
-import createActions from 'test-fixtures/components/hello/create-actions';
 
 const render = reactDom.renderToStaticMarkup;
 const App = createApp(React);
 
-test('Hello', assert => {
-  const msg = 'Should render all sections.';
+test('Calendar', assert => {
+  const msg = 'App should render the calendar';
 
-  const props = {
-    foo: 'foo',
-    helloClass: 'hello',
-    titleClass: 'title',
-    title: 'Yay!',
-    actions: createActions()
-  };
-
-  const el = <App{ ...props } />;
+  const el = <App />;
   const $ = dom.load(render(el));
+  const output = $('.DayPicker').children().length;
 
-  const actual = {
-    Hello: Boolean($(`.${ props.helloClass }`).html()),
-    Title: Boolean($(`.${ props.titleClass }`).html())
-  };
+  const actual = output > 0;
+  const expected = true;
 
-  const expected = {
-    Hello: true,
-    Title: true
-  };
-
-  assert.deepEqual(actual, expected, msg);
-
+  assert.equal(actual, expected, msg);
   assert.end();
 });
